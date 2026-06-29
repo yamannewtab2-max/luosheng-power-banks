@@ -1,0 +1,18 @@
+# Dependencies / build artifacts
+node_modules/
+.vercel/
+.env
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temp
+*.tmp
+*.swp
+*.swo

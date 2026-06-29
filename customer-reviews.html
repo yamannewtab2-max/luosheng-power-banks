@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Reviews — Shenzhen Luosheng Digital Technology Firm</title>
+  <meta name="description" content="Real customer reviews and photos from our happy B2B buyers worldwide. Premium used power banks wholesale." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&family=Playfair+Display:ital,wght@0,600..900;1,600..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page" style="padding-bottom:3rem">
+    <div class="page-wide">
+      <a href="/" class="back-link">← Back to Home</a>
+      <div class="page-header">
+        <span class="page-header__icon">★</span>
+        <h1 class="page-header__title">Customer Reviews</h1>
+        <p class="page-header__sub">Real feedback from our happy customers worldwide</p>
+      </div>
+      <div style="text-align:center;margin-bottom:2rem">
+        <a href="https://wa.me/8618026937104?text=Hi%20there%2C%20I%20saw%20your%20customer%20reviews%20and%20I%27m%20interested%20in%20your%20power%20banks%20wholesale" target="_blank" class="btn btn--whatsapp" style="display:inline-flex;max-width:340px;padding:0.7rem 1.5rem;font-size:0.85rem">📲 Contact Us on WhatsApp</a>
+      </div>
+
+      <div class="reviews-layout">
+        <!-- LEFT: Customer Photos -->
+        <div class="reviews-left">
+          <h2 class="review-section-title" style="text-align:left;max-width:none">Customer photos:</h2>
+          <div class="review-img-grid">
+            <div class="review-img-card"><img src="review-img-1.jpg?v=1" alt="Customer photo 1" loading="lazy" /></div>
+            <div class="review-img-card"><img src="review-img-2.jpg?v=1" alt="Customer photo 2" loading="lazy" /></div>
+            <div class="review-img-card"><img src="review-img-3.jpg?v=1" alt="Customer photo 3" loading="lazy" /></div>
+            <div class="review-img-card"><img src="review-img-4.jpg?v=1" alt="Customer photo 4" loading="lazy" /></div>
+            <div class="review-img-card"><img src="review-img-5.jpg?v=1" alt="Customer photo 5" loading="lazy" /></div>
+            <div class="review-img-card"><img src="review-img-6.jpg?v=1" alt="Customer photo 6" loading="lazy" /></div>
+            <div class="review-img-card"><img src="review-img-7.jpg?v=1" alt="Customer photo 7" loading="lazy" /></div>
+            <div class="review-img-card"><img src="review-img-8.jpg?v=1" alt="Customer photo 8" loading="lazy" /></div>
+            <div class="review-img-card"><img src="review-img-9.jpg?v=1" alt="Customer photo 9" loading="lazy" /></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Video Carousel -->
+        <div class="reviews-right">
+          <h2 class="review-section-title" style="text-align:center">Video reviews:</h2>
+          <div class="carousel-wrap">
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                  <video src="review-video-1.mp4" poster="review-video-1-poster.jpg" controls playsinline preload="metadata"></video>
+                  <span class="carousel-label">Customer review 1</span>
+                </div>
+                <div class="carousel-slide">
+                  <video src="review-video-2.mp4" poster="review-video-2-poster.jpg" controls playsinline preload="metadata"></video>
+                  <span class="carousel-label">Customer review 2</span>
+                </div>
+                <div class="carousel-slide">
+                  <video src="review-video-3.mp4" poster="review-video-3-poster.jpg" controls playsinline preload="metadata"></video>
+                  <span class="carousel-label">Customer review 3</span>
+                </div>
+                <div class="carousel-slide">
+                  <video src="review-video-4.mp4" poster="review-video-4-poster.jpg" controls playsinline preload="metadata"></video>
+                  <span class="carousel-label">Customer review 4</span>
+                </div>
+                <div class="carousel-slide">
+                  <video src="review-video-5.mp4" poster="review-video-5-poster.jpg" controls playsinline preload="metadata"></video>
+                  <span class="carousel-label">Customer review 5</span>
+                </div>
+              </div>
+              <button class="carousel-arrow carousel-arrow--prev" id="prevBtn" aria-label="Previous">◀</button>
+              <button class="carousel-arrow carousel-arrow--next" id="nextBtn" aria-label="Next">▶</button>
+            </div>
+            <div class="carousel-counter" id="carouselCounter">1 / 5</div>
+            <div class="carousel-dots" id="carouselDots"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <script>
+    // ═══ Carousel ═══
+    const track = document.getElementById('carouselTrack')
+    const prevBtn = document.getElementById('prevBtn')
+    const nextBtn = document.getElementById('nextBtn')
+    const counter = document.getElementById('carouselCounter')
+    const dotsContainer = document.getElementById('carouselDots')
+    const slides = track.querySelectorAll('.carousel-slide')
+    const videos = track.querySelectorAll('video')
+    const total = slides.length
+    let current = 0
+    let autoTimer = null
+
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button')
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '')
+      dot.setAttribute('aria-label', 'Go to review ' + (i + 1))
+      dot.addEventListener('click', () => goTo(i))
+      dotsContainer.appendChild(dot)
+    }
+
+    function goTo(index) {
+      if (index < 0) index = 0
+      if (index >= total) index = total - 1
+      current = index
+      track.style.transform = 'translateX(-' + (current * 100) + '%)'
+      counter.textContent = (current + 1) + ' / ' + total
+      prevBtn.disabled = current === 0
+      nextBtn.disabled = current === total - 1
+      slides.forEach((s, i) => {
+        s.style.display = 'flex'
+        s.style.flexDirection = 'column'
+        s.style.justifyContent = i === current ? 'center' : 'flex-start'
+        s.style.minHeight = i === current ? '100%' : ''
+      })
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current)
+      })
+      restartAuto()
+    }
+
+    function restartAuto() {
+      if (autoTimer) clearInterval(autoTimer)
+      autoTimer = setInterval(() => {
+        const anyPlaying = [...videos].some(v => !v.paused)
+        if (!anyPlaying) goTo((current + 1) % total)
+      }, 4000)
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1))
+    nextBtn.addEventListener('click', () => goTo(current + 1))
+    prevBtn.addEventListener('click', restartAuto)
+    nextBtn.addEventListener('click', restartAuto)
+
+    let startX = 0, endX = 0
+    const viewport = document.querySelector('.carousel-viewport')
+    viewport.addEventListener('touchstart', (e) => { startX = e.changedTouches[0].screenX }, {passive: true})
+    viewport.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].screenX
+      const diff = startX - endX
+      if (Math.abs(diff) > 50) {
+        if (diff > 0 && current < total - 1) goTo(current + 1)
+        else if (diff < 0 && current > 0) goTo(current - 1)
+      }
+    }, {passive: true})
+
+    goTo(0)
+
+    // ═══ Lightbox for images ═══
+    const lightbox = document.getElementById('lightbox')
+    const lightboxImg = document.getElementById('lightboxImg')
+    const lightboxClose = document.getElementById('lightboxClose')
+
+    document.querySelectorAll('.review-img-card img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src
+        lightbox.classList.add('open')
+      })
+    })
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('open')
+      lightboxImg.src = ''
+    })
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('open')
+        lightboxImg.src = ''
+      }
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        lightbox.classList.remove('open')
+        lightboxImg.src = ''
+      }
+    })
+  </script>
+</body>
+</html>
