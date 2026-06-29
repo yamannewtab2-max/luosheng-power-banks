@@ -1,37 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clean White — Design ✦ Luosheng Power Banks</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&family=Playfair+Display:ital,wght@0,600..900;1,600..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&family=Playfair+Display:ital,wght@0,600..900;1,600..900&family=Tajawal:wght@300;500;700;800&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     :root{
       --bg:#f8f9fc;--bg-card:#ffffff;--bg-section:#f0f2f6;
       --navy:#1a1a2e;--navy-light:#2c166e;
       --gold:#e8c56d;--gold-rich:#d4a04a;
-      --purple:#6c5ce7;--purple-light:#a29bfe;
+      --purple:#6c5ce7;
       --text:#2d3748;--text-muted:#718096;--text-light:#a0aec0;
-      --border:#e2e8f0;--border-active:#e8c56d;
+      --border:#e2e8f0;
       --shadow:0 4px 16px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);
-      --shadow-lg:0 12px 40px rgba(26,26,46,0.08),0 0 0 1px rgba(26,26,46,0.02);
       --transition:0.3s cubic-bezier(0.23,1,0.32,1);
     }
     body{
-      font-family:'Outfit',system-ui,-apple-system,sans-serif;
+      font-family:'Outfit','Tajawal',system-ui,-apple-system,sans-serif;
       background:var(--bg);color:var(--text);
       -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
     }
-    .design-ref{
-      position:fixed;top:10px;right:10px;z-index:999;
-      padding:3px 10px;border-radius:100px;
-      font-size:10px;font-weight:700;letter-spacing:0.08em;
+    [dir="rtl"] body{font-family:'Tajawal','Outfit',system-ui,-apple-system,sans-serif}
+    [dir="rtl"] .hero__sub{font-family:'Tajawal','Playfair Display',serif}
+    [dir="rtl"] .about__title{font-family:'Tajawal','Playfair Display',serif}
+
+    .lang-toggle{
+      position:fixed;top:10px;right:10px;z-index:9999;
+      display:flex;align-items:center;gap:5px;
+      padding:4px 12px;border-radius:100px;
+      font-size:11px;font-weight:600;letter-spacing:0.05em;
       background:rgba(44,22,110,0.08);color:var(--navy-light);
       border:1px solid rgba(44,22,110,0.12);
-      backdrop-filter:blur(8px);text-transform:uppercase;
+      backdrop-filter:blur(8px);
+      cursor:pointer;
+      font-family:'Outfit','Tajawal',sans-serif;
+      transition:all var(--transition);
     }
+    .lang-toggle:hover{background:rgba(44,22,110,0.12)}
+
     .header{
       position:fixed;top:0;left:0;right:0;z-index:100;
       padding:0.7rem 1.5rem;
@@ -55,13 +64,18 @@
     }
     .header__nav .cta-new:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(44,22,110,0.3);color:#fff}
 
-    /* ─── Hero ─── */
     .hero{
       min-height:100vh;padding:7rem 1.5rem 3rem;
       display:flex;align-items:center;justify-content:center;
+      position:relative;overflow:hidden;
       background:linear-gradient(160deg,#f8f9fc 0%,#eef1f8 50%,#f5f0eb 100%);
     }
-    .hero__inner{max-width:900px;width:100%;text-align:center}
+    .hero__bg{
+      position:absolute;inset:0;z-index:0;
+      background:url('../../bg-hero.jpg') center/cover no-repeat;
+      opacity:0.08;filter:saturate(0.5);
+    }
+    .hero__inner{max-width:900px;width:100%;text-align:center;position:relative;z-index:1}
     .hero__sub{
       font-family:'Playfair Display',serif;
       font-size:clamp(2.5rem,7vw,5rem);font-weight:700;font-style:italic;
@@ -86,146 +100,104 @@
       font-size:0.9rem;font-weight:600;text-decoration:none;
       transition:all var(--transition);
     }
-    .btn--primary{
-      background:var(--navy-light);color:#fff;
-      box-shadow:0 2px 12px rgba(44,22,110,0.2);
-    }
+    .btn--primary{background:var(--navy-light);color:#fff;box-shadow:0 2px 12px rgba(44,22,110,0.2)}
     .btn--primary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(44,22,110,0.3)}
-    .btn--secondary{
-      background:var(--bg-card);color:var(--navy);
-      border:1px solid var(--border);
-      box-shadow:0 1px 4px rgba(0,0,0,0.02);
-    }
+    .btn--secondary{background:var(--bg-card);color:var(--navy);border:1px solid var(--border)}
     .btn--secondary:hover{border-color:var(--gold);box-shadow:var(--shadow)}
-    .btn--new-model{
-      background:linear-gradient(135deg,var(--gold),var(--gold-rich));
-      color:#fff;font-weight:700;border:none;
-      box-shadow:0 2px 12px rgba(232,197,109,0.3);
-    }
+    .btn--new-model{background:linear-gradient(135deg,var(--gold),var(--gold-rich));color:#fff;font-weight:700}
     .btn--new-model:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(232,197,109,0.4)}
+    @media(max-width:640px){.hero{padding:5rem 1rem 2rem}.hero__buttons{flex-direction:column;align-items:center}.btn{width:100%;max-width:300px}}
 
-    @media(max-width:640px){
-      .hero{padding:5rem 1rem 2rem}
-      .hero__buttons{flex-direction:column;align-items:center}
-      .btn{width:100%;max-width:300px}
-    }
-
-    /* ─── Stats bar ─── */
-    .stats-bar{
-      display:flex;justify-content:center;gap:0;
-      max-width:900px;margin:-2rem auto 0;
-      padding:0 1.5rem;position:relative;z-index:10;
-    }
-    .stats-bar .stat{
-      flex:1;background:var(--bg-card);
-      padding:1.5rem 1rem;text-align:center;
-      border:1px solid var(--border);
-      border-right:none;
-      box-shadow:var(--shadow);
-    }
+    .stats-bar{display:flex;justify-content:center;gap:0;max-width:900px;margin:-2rem auto 0;padding:0 1.5rem;position:relative;z-index:10}
+    .stats-bar .stat{flex:1;background:var(--bg-card);padding:1.5rem 1rem;text-align:center;border:1px solid var(--border);border-right:none;box-shadow:var(--shadow)}
     .stats-bar .stat:first-child{border-radius:12px 0 0 12px}
     .stats-bar .stat:last-child{border-radius:0 12px 12px 0;border-right:1px solid var(--border)}
-    .stats-bar .stat-num{
-      font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;font-style:italic;
-      color:var(--navy-light);display:block;
-    }
-    .stats-bar .stat-label{
-      font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;
-    }
-    @media(max-width:640px){
-      .stats-bar{flex-wrap:wrap;gap:0}
-      .stats-bar .stat{flex:1 1 50%;border-right:1px solid var(--border)}
-      .stats-bar .stat:nth-child(2){border-right:1px solid var(--border)}
-      .stats-bar .stat:first-child{border-radius:12px 0 0 0}
-      .stats-bar .stat:nth-child(2){border-radius:0 12px 0 0}
-      .stats-bar .stat:nth-child(3){border-radius:0 0 0 12px}
-      .stats-bar .stat:last-child{border-radius:0 0 12px 0}
-    }
+    .stats-bar .stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;font-style:italic;color:var(--navy-light);display:block}
+    .stats-bar .stat-label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em}
+    @media(max-width:640px){.stats-bar{flex-wrap:wrap}.stats-bar .stat{flex:1 1 50%;border-right:1px solid var(--border)}.stats-bar .stat:first-child{border-radius:12px 0 0 0}.stats-bar .stat:nth-child(2){border-radius:0 12px 0 0}.stats-bar .stat:nth-child(3){border-radius:0 0 0 12px}.stats-bar .stat:last-child{border-radius:0 0 12px 0}}
 
-    /* ─── About ─── */
     .about{padding:5rem 1.5rem;background:var(--bg-card);text-align:center}
     .about__inner{max-width:700px;margin:0 auto}
-    .about__title{
-      font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);
-      font-weight:700;font-style:italic;color:var(--navy);margin-bottom:1rem;
-    }
+    .about__title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;font-style:italic;color:var(--navy);margin-bottom:1rem}
     .about__content{font-size:0.95rem;color:var(--text-muted);line-height:1.8}
     .about__content strong{color:var(--navy)}
+    .brand-row{display:flex;justify-content:center;gap:2rem;margin:2rem auto 0;flex-wrap:wrap}
+    .brand-pill{padding:0.4rem 1.2rem;border-radius:50px;background:linear-gradient(135deg,rgba(232,197,109,0.1),rgba(212,160,74,0.05));border:1px solid rgba(232,197,109,0.2);font-size:0.85rem;font-weight:600;color:var(--navy-light)}
 
-    .brand-row{
-      display:flex;justify-content:center;gap:2rem;
-      margin:2rem auto 0;flex-wrap:wrap;
-    }
-    .brand-pill{
-      padding:0.4rem 1.2rem;border-radius:50px;
-      background:linear-gradient(135deg,rgba(232,197,109,0.1),rgba(212,160,74,0.05));
-      border:1px solid rgba(232,197,109,0.2);
-      font-size:0.85rem;font-weight:600;color:var(--navy-light);
-    }
-
-    .footer{
-      padding:1.5rem;border-top:1px solid var(--border);
-      background:var(--bg);text-align:center;
-      font-size:0.8rem;color:var(--text-muted);
-    }
+    .footer{padding:1.5rem;border-top:1px solid var(--border);background:var(--bg);text-align:center;font-size:0.8rem;color:var(--text-muted)}
     .footer a{color:var(--navy-light);text-decoration:none}
   </style>
 </head>
 <body>
-  <span class="design-ref">✦ Clean White</span>
+  <button class="lang-toggle" onclick="toggleLang()"><span class="flag">🇸🇦</span> <span id="langLabel">عربي</span></button>
 
   <header class="header">
     <div class="header__inner">
-      <a href="../" class="header__logo"><span style="font-size:1.1rem">⚡</span> <span>Shenzhen Luosheng<br/>Digital Technology Firm</span></a>
+      <a href="../" class="header__logo"><span style="font-size:1.1rem">⚡</span> <span><span data-en="Shenzhen Luosheng" data-ar="شنتشن لوشنغ">Shenzhen Luosheng</span><br/><span data-en="Digital Technology Firm" data-ar="شركة التكنولوجيا الرقمية">Digital Technology Firm</span></span></a>
       <nav class="header__nav">
-        <a href="#" class="cta-new">New Model</a>
+        <a href="#" class="cta-new" data-en="New Model" data-ar="موديل جديد">New Model</a>
         <a href="#">📲 WhatsApp</a>
       </nav>
     </div>
   </header>
 
   <section class="hero">
+    <div class="hero__bg"></div>
     <div class="hero__inner">
-      <span class="hero__accent">Shenzhen Luosheng</span>
-      <p class="hero__sub">Premium Used<br/>Power Banks</p>
+      <span class="hero__accent" data-en="Shenzhen Luosheng" data-ar="شنتشن لوشنغ">Shenzhen Luosheng</span>
+      <p class="hero__sub"><span data-en="Premium Used" data-ar="مستعمل فاخر">Premium Used</span><br/><span data-en="Power Banks" data-ar="باور بانك">Power Banks</span></p>
       <p class="hero__tagline">
-        Your trusted B2B wholesale partner for <strong>Anker, Romoss and more other brands</strong>.<br/>
-        Based in Dongguan, China — serving global buyers since 2018.
+        <span data-en="Your trusted B2B wholesale partner for" data-ar="شريك الجملة الموثوق لـ">Your trusted B2B wholesale partner for</span> <strong data-en="Anker, Romoss and more" data-ar="أنكر، روموس والمزيد">Anker, Romoss and more</strong>.<br/>
+        <span data-en="Based in Dongguan, China" data-ar="مقرنا دونغقوان، الصين">Based in Dongguan, China</span>
       </p>
       <div class="hero__buttons">
-        <a href="#" class="btn btn--primary">📦 View Details</a>
-        <a href="#" class="btn btn--secondary">★ Customer Reviews</a>
-        <a href="#" class="btn btn--secondary">📸 Product Album</a>
-        <a href="#" class="btn btn--new-model">🚀 New Model</a>
+        <a href="#" class="btn btn--primary" data-en="📦 View Details" data-ar="📦 عرض التفاصيل">📦 View Details</a>
+        <a href="#" class="btn btn--secondary" data-en="★ Customer Reviews" data-ar="★ تقييمات العملاء">★ Customer Reviews</a>
+        <a href="#" class="btn btn--secondary" data-en="📸 Product Album" data-ar="📸 ألبوم المنتجات">📸 Product Album</a>
+        <a href="#" class="btn btn--new-model" data-en="🚀 New Model" data-ar="🚀 موديل جديد">🚀 New Model</a>
       </div>
     </div>
   </section>
 
   <div class="stats-bar">
-    <div class="stat"><span class="stat-num">5M+</span><span class="stat-label">Units Sold</span></div>
-    <div class="stat"><span class="stat-num">98%</span><span class="stat-label">Positive Feedback</span></div>
-    <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Tons / Month</span></div>
-    <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Countries</span></div>
+    <div class="stat"><span class="stat-num">5M+</span><span class="stat-label" data-en="Units Sold" data-ar="وحدة مباعة">Units Sold</span></div>
+    <div class="stat"><span class="stat-num">98%</span><span class="stat-label" data-en="Positive" data-ar="إيجابي">Positive</span></div>
+    <div class="stat"><span class="stat-num">100+</span><span class="stat-label" data-en="Tons/Month" data-ar="طن/شهر">Tons/Month</span></div>
+    <div class="stat"><span class="stat-num">30+</span><span class="stat-label" data-en="Countries" data-ar="دولة">Countries</span></div>
   </div>
 
   <section class="about">
     <div class="about__inner">
-      <h2 class="about__title">About Us</h2>
+      <h2 class="about__title" data-en="About Us" data-ar="من نحن">About Us</h2>
       <div class="about__content">
-        <p><strong>Shenzhen Luosheng Digital Technology Firm</strong> is a professional wholesale supplier of premium used power banks and brand-new power banks. We specialize in <strong>Anker, Romoss and more other brands</strong> at competitive bulk prices.</p>
-        <p>Located in Dongguan China. Strict QC — <strong style="color:#2ecc71">99.5% works well</strong>. MOQ 1 Ton (4,400 PCS). Worldwide shipping by sea.</p>
+        <p><strong data-en="Shenzhen Luosheng Digital Technology Firm" data-ar="شركة شنتشن لوشنغ للتكنولوجيا الرقمية">Shenzhen Luosheng Digital Technology Firm</strong> <span data-en="is a professional wholesale supplier of premium used power banks and brand-new power banks. We specialize in" data-ar="هي مورّد جملة محترف للباور بانك المستعمل الفاخر والجديد. نحن متخصصون في">is a professional wholesale supplier of premium used power banks and brand-new power banks. We specialize in</span> <strong data-en="Anker, Romoss and more other brands" data-ar="أنكر، روموس والمزيد من الماركات">Anker, Romoss and more other brands</strong> <span data-en="at competitive bulk prices." data-ar="بأسعار جملة تنافسية.">at competitive bulk prices.</span></p>
+        <p><span data-en="Located in Dongguan China. Strict QC —" data-ar="نقع في دونغقوان، الصين. فحص جودة صارم —">Located in Dongguan China. Strict QC —</span> <strong style="color:#2ecc71" data-en="99.5% works well" data-ar="99.5% تعمل بكفاءة">99.5% works well</strong>. <span data-en="MOQ 1 Ton (4,400 PCS)." data-ar="الحد الأدنى للطلب: 1 طن (4,400 قطعة).">MOQ 1 Ton (4,400 PCS).</span></p>
       </div>
       <div class="brand-row">
         <span class="brand-pill">Anker</span>
-        <span class="brand-pill">Romoss</span>
-        <span class="brand-pill">More brands</span>
-        <span class="brand-pill">10,000–30,000 mAh</span>
+        <span class="brand-pill" data-en="Romoss" data-ar="روموس">Romoss</span>
+        <span class="brand-pill" data-en="More brands" data-ar="المزيد">More brands</span>
+        <span class="brand-pill" data-en="10,000–30,000 mAh" data-ar="10,000–30,000 ماه">10,000–30,000 mAh</span>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    © 2026 Shenzhen Luosheng Digital Technology Firm — <a href="../">← Back to Design Browser</a>
+    © 2026 <span data-en="Shenzhen Luosheng Digital Technology Firm" data-ar="شركة شنتشن لوشنغ للتكنولوجيا الرقمية">Shenzhen Luosheng Digital Technology Firm</span> — <a href="../"><span data-en="← Back" data-ar="→ رجوع">← Back</span></a>
   </footer>
+
+  <script>
+    let currentLang = 'en'
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'ar' : 'en'
+      document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + currentLang)
+      })
+      document.documentElement.lang = currentLang
+      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr'
+      document.getElementById('langLabel').textContent = currentLang === 'en' ? 'عربي' : 'English'
+      document.querySelector('.lang-toggle .flag').textContent = currentLang === 'en' ? '🇸🇦' : '🇬🇧'
+    }
+  </script>
 </body>
 </html>

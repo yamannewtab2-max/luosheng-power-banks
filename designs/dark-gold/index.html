@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dark Gold — Design ✦ Luosheng Power Banks</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&family=Playfair+Display:ital,wght@0,600..900;1,600..900&family=Anton&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&family=Playfair+Display:ital,wght@0,600..900;1,600..900&family=Anton&family=Tajawal:wght@300;500;700;800&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     :root{
@@ -20,19 +20,30 @@
       --transition:0.4s cubic-bezier(0.23,1,0.32,1);
     }
     body{
-      font-family:'Outfit',system-ui,-apple-system,sans-serif;
+      font-family:'Outfit','Tajawal',system-ui,-apple-system,sans-serif;
       background:var(--bg);color:var(--text);
       -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
     }
-    .design-ref{
-      position:fixed;top:10px;right:10px;z-index:999;
-      padding:3px 10px;border-radius:100px;
-      font-size:10px;font-weight:700;letter-spacing:0.08em;
+    [dir="rtl"] body{font-family:'Tajawal','Outfit',system-ui,-apple-system,sans-serif}
+    [dir="rtl"] .hero__sub{font-family:'Tajawal','Anton','Impact',sans-serif}
+    [dir="rtl"] .hero__title{font-family:'Tajawal','Playfair Display',serif}
+    [dir="rtl"] .about__title{font-family:'Tajawal','Playfair Display',serif}
+
+    .lang-toggle{
+      position:fixed;top:10px;right:10px;z-index:9999;
+      display:flex;align-items:center;gap:5px;
+      padding:4px 12px;border-radius:100px;
+      font-size:11px;font-weight:600;letter-spacing:0.05em;
       background:rgba(240,194,127,0.12);
       color:var(--gold);border:1px solid rgba(240,194,127,0.2);
       backdrop-filter:blur(8px);
-      text-transform:uppercase;
+      cursor:pointer;
+      font-family:'Outfit','Tajawal',sans-serif;
+      transition:all var(--transition);
     }
+    .lang-toggle:hover{background:rgba(240,194,127,0.2);border-color:var(--gold-light)}
+    .lang-toggle .flag{font-size:14px}
+
     .header{
       position:fixed;top:0;left:0;right:0;z-index:100;
       padding:0.7rem 1.5rem;
@@ -54,7 +65,6 @@
       border-color:transparent;color:#1a1206;font-weight:700;font-size:0.7rem;text-shadow:0 1px 2px rgba(0,0,0,0.15);
     }
 
-    /* ─── Hero ─── */
     .hero{
       position:relative;width:100%;height:100vh;
       display:flex;align-items:center;justify-content:center;overflow:hidden;
@@ -110,7 +120,6 @@
       margin-top:0.5rem;text-transform:uppercase;letter-spacing:0.05em;
     }
 
-    /* ─── About ─── */
     .about{padding:5rem 1.5rem;background:linear-gradient(180deg,var(--bg),#03050a);border-top:1px solid var(--gold-border);position:relative}
     .about::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
     .about__inner{max-width:720px;margin:0 auto;text-align:center}
@@ -130,13 +139,13 @@
   </style>
 </head>
 <body>
-  <span class="design-ref">✦ Dark Gold</span>
+  <button class="lang-toggle" onclick="toggleLang()"><span class="flag">🇸🇦</span> <span id="langLabel">عربي</span></button>
 
   <header class="header">
     <div class="header__inner">
-      <a href="../" class="header__logo"><span style="font-size:1.1rem">⚡</span> <span>Shenzhen Luosheng<br/>Digital Technology Firm</span></a>
+      <a href="../" class="header__logo"><span style="font-size:1.1rem">⚡</span> <span><span data-en="Shenzhen Luosheng" data-ar="شنتشن لوشنغ">Shenzhen Luosheng</span><br/><span data-en="Digital Technology Firm" data-ar="شركة التكنولوجيا الرقمية">Digital Technology Firm</span></span></a>
       <nav class="header__nav">
-        <a href="#" class="cta-new">NEW MODEL</a>
+        <a href="#" class="cta-new" data-en="NEW MODEL" data-ar="موديل جديد">NEW MODEL</a>
         <a href="#">📲 WhatsApp</a>
       </nav>
     </div>
@@ -145,34 +154,55 @@
   <section class="hero">
     <div class="hero__bg"></div>
     <div class="hero__content">
-      <p class="hero__sub">Premium Used<br/>Power Banks</p>
-      <h1 class="hero__title">Shenzhen Luosheng — Digital Technology Firm</h1>
-      <p class="hero__tagline">Your trusted B2B wholesale partner • Anker, Romoss &amp; more • Dongguan, China</p>
+      <p class="hero__sub"><span data-en="Premium Used" data-ar="مستعمل فاخر">Premium Used</span><br/><span data-en="Power Banks" data-ar="باور بانك">Power Banks</span></p>
+      <h1 class="hero__title" data-en="Shenzhen Luosheng — Digital Technology Firm" data-ar="شنتشن لوشنغ — شركة التكنولوجيا الرقمية">Shenzhen Luosheng — Digital Technology Firm</h1>
+      <p class="hero__tagline" data-en="Your trusted B2B wholesale partner • Anker, Romoss &amp; more • Dongguan, China" data-ar="شريك الجملة الموثوق • أنكر، روموس والمزيد • دونغقوان، الصين">Your trusted B2B wholesale partner • Anker, Romoss &amp; more • Dongguan, China</p>
       <div class="hero__buttons">
-        <a href="#" class="btn btn--primary">📦 View Details &amp; Pricing</a>
-        <a href="#" class="btn btn--secondary">★ Customer Reviews</a>
-        <a href="#" class="btn btn--secondary">📸 Product Album</a>
-        <a href="#" class="btn btn--new-model">🚀 New Model — Coming Soon</a>
+        <a href="#" class="btn btn--primary" data-en="📦 View Details &amp; Pricing" data-ar="📦 عرض التفاصيل والأسعار">📦 View Details &amp; Pricing</a>
+        <a href="#" class="btn btn--secondary" data-en="★ Customer Reviews" data-ar="★ تقييمات العملاء">★ Customer Reviews</a>
+        <a href="#" class="btn btn--secondary" data-en="📸 Product Album" data-ar="📸 ألبوم المنتجات">📸 Product Album</a>
+        <a href="#" class="btn btn--new-model" data-en="🚀 New Model — Coming Soon" data-ar="🚀 موديل جديد — قريباً">🚀 New Model — Coming Soon</a>
       </div>
     </div>
   </section>
 
   <section class="about">
     <div class="about__inner">
-      <h2 class="about__title">About Us</h2>
-      <p>Shenzhen Luosheng Digital Technology Firm is a professional wholesale supplier of premium used power banks and brand-new power banks. We specialize in <strong style="color:var(--gold-light)">Anker, Romoss and more other brands</strong> at competitive bulk prices.</p>
-      <p>Located in Dongguan China, we serve B2B buyers worldwide. Strict QC inspection, <strong style="color:#2ecc71">99.5% works well</strong>. MOQ 1 Ton (4,400 PCS).</p>
+      <h2 class="about__title" data-en="About Us" data-ar="من نحن">About Us</h2>
+      <div class="about__content">
+        <p><span data-en="Shenzhen Luosheng Digital Technology Firm is a professional wholesale supplier of premium used power banks and brand-new power banks. We specialize in" data-ar="شركة شنتشن لوشنغ للتكنولوجيا الرقمية هي مورّد جملة محترف للباور بانك المستعمل الفاخر والجديد. نحن متخصصون في">Shenzhen Luosheng Digital Technology Firm is a professional wholesale supplier of premium used power banks and brand-new power banks. We specialize in</span> <strong style="color:var(--gold-light)" data-en="Anker, Romoss and more other brands" data-ar="أنكر، روموس والمزيد من الماركات">Anker, Romoss and more other brands</strong> <span data-en="at competitive bulk prices." data-ar="بأسعار جملة تنافسية.">at competitive bulk prices.</span></p>
+        <p><span data-en="Located in Dongguan China, we serve B2B buyers worldwide. Strict QC inspection," data-ar="نقع في دونغقوان، الصين، ونخدم مشتري الجملة حول العالم. فحص جودة صارم،">Located in Dongguan China, we serve B2B buyers worldwide. Strict QC inspection,</span> <strong style="color:#2ecc71" data-en="99.5% works well" data-ar="99.5% تعمل بكفاءة">99.5% works well</strong>. <span data-en="MOQ 1 Ton (4,400 PCS)." data-ar="الحد الأدنى للطلب: 1 طن (4,400 قطعة).">MOQ 1 Ton (4,400 PCS).</span></p>
+      </div>
       <div class="about__stats">
-        <div class="about__stat"><span class="about__stat-num">5,000,000+</span><span class="about__stat-label">Units Sold</span></div>
-        <div class="about__stat"><span class="about__stat-num">98%</span><span class="about__stat-label">Positive Feedback</span></div>
-        <div class="about__stat"><span class="about__stat-num">100+</span><span class="about__stat-label">Tons / Month</span></div>
-        <div class="about__stat"><span class="about__stat-num">30+</span><span class="about__stat-label">Countries</span></div>
+        <div class="about__stat"><span class="about__stat-num">5,000,000+</span><span class="about__stat-label" data-en="Units Sold" data-ar="وحدة مباعة">Units Sold</span></div>
+        <div class="about__stat"><span class="about__stat-num">98%</span><span class="about__stat-label" data-en="Positive Feedback" data-ar="تقييم إيجابي">Positive Feedback</span></div>
+        <div class="about__stat"><span class="about__stat-num">100+</span><span class="about__stat-label" data-en="Tons / Month" data-ar="طن / شهر">Tons / Month</span></div>
+        <div class="about__stat"><span class="about__stat-num">30+</span><span class="about__stat-label" data-en="Countries" data-ar="دولة">Countries</span></div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    © 2026 Shenzhen Luosheng Digital Technology Firm — <a href="../">← Back to Design Browser</a>
+    © 2026 <span data-en="Shenzhen Luosheng Digital Technology Firm" data-ar="شركة شنتشن لوشنغ للتكنولوجيا الرقمية">Shenzhen Luosheng Digital Technology Firm</span> — <a href="../"><span data-en="← Back" data-ar="→ رجوع">← Back</span></a>
   </footer>
+
+  <script>
+    let currentLang = 'en'
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'ar' : 'en'
+      const els = document.querySelectorAll('[data-en][data-ar]')
+      els.forEach(el => {
+        if (el.tagName === 'A' && el.classList.contains('btn')) {
+          el.innerHTML = el.getAttribute('data-' + currentLang)
+        } else if (el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'STRONG' || el.tagName === 'A') {
+          el.innerHTML = el.getAttribute('data-' + currentLang)
+        }
+      })
+      document.documentElement.lang = currentLang
+      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr'
+      document.getElementById('langLabel').textContent = currentLang === 'en' ? 'عربي' : 'English'
+      document.querySelector('.lang-toggle .flag').textContent = currentLang === 'en' ? '🇸🇦' : '🇬🇧'
+    }
+  </script>
 </body>
 </html>
