@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Industrial Teal — Design ✦ Luosheng Power Banks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200..900&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --lacquer:#080b0e;--lacquer-deep:#030508;--lacquer-raised:#0f1419;
+      --verdigris:#50c8b4;--verdigris-deep:#2a8a7a;--verdigris-pale:#7ad8c8;
+      --text:#ccd6e0;--text-muted:#7a8794;--text-dim:#5a6570;
+      --border:rgba(80,200,180,0.08);--border-strong:rgba(80,200,180,0.2);
+      --transition:0.35s cubic-bezier(0.23,1,0.32,1);
+    }
+    body{
+      font-family:'Outfit',system-ui,-apple-system,sans-serif;
+      background:var(--lacquer);color:var(--text);
+      -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
+      font-weight:300;
+    }
+    .design-ref{
+      position:fixed;top:10px;right:10px;z-index:999;
+      padding:3px 10px;
+      font-size:10px;font-weight:500;letter-spacing:0.1em;
+      background:rgba(80,200,180,0.08);
+      color:var(--verdigris);border:1px solid rgba(80,200,180,0.15);
+      text-transform:uppercase;
+    }
+    .header{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      padding:0.6rem 1.5rem;
+      background:rgba(8,11,14,0.85);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border);
+    }
+    .header__inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .header__logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:var(--text);font-weight:300;font-size:0.78rem;line-height:1.2;letter-spacing:0.06em;text-transform:uppercase}
+    .header__nav{display:flex;align-items:center;gap:1rem}
+    .header__nav a{
+      text-decoration:none;color:var(--text-muted);font-size:0.72rem;font-weight:400;
+      padding:0.35rem 1rem;
+      border:1px solid var(--border);
+      transition:all var(--transition);
+      letter-spacing:0.04em;
+    }
+    .header__nav a:hover{border-color:var(--border-strong);color:var(--verdigris)}
+    .header__nav .cta-new{
+      background:var(--verdigris-deep);color:var(--lacquer);font-weight:500;
+      border-color:var(--verdigris);
+    }
+    .header__nav .cta-new:hover{background:var(--verdigris);color:var(--lacquer-deep)}
+
+    /* ─── Hero ─── */
+    .hero{
+      min-height:100vh;padding:6rem 1.5rem 2rem;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,var(--lacquer) 0%,var(--lacquer-deep) 100%);
+      position:relative;
+    }
+    .hero::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:1px;
+      background:linear-gradient(90deg,transparent,var(--verdigris),transparent);
+      opacity:0.3;
+    }
+    .hero__inner{max-width:860px;width:100%;text-align:center}
+    .hero__eyebrow{
+      font-size:0.7rem;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;
+      color:var(--verdigris);margin-bottom:1.5rem;
+    }
+    .hero__sub{
+      font-size:clamp(2.8rem,8vw,5.5rem);font-weight:200;
+      line-height:1;letter-spacing:-0.04em;
+      color:var(--text);text-transform:uppercase;
+      margin-bottom:0.5rem;
+    }
+    .hero__sub .accent{color:var(--verdigris)}
+    .hero__sub2{
+      font-size:clamp(1.2rem,3vw,2.2rem);font-weight:200;
+      color:var(--text-muted);letter-spacing:-0.02em;
+      margin-bottom:2rem;
+    }
+    .hero__desc{
+      font-size:0.85rem;color:var(--text-dim);
+      max-width:500px;margin:0 auto 2.5rem;
+      letter-spacing:0.02em;line-height:1.8;
+    }
+    .hero__buttons{display:flex;flex-wrap:wrap;gap:0;justify-content:center}
+    .hero__buttons a{flex:0 0 auto}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:0.8rem 2rem;
+      font-size:0.8rem;font-weight:400;text-decoration:none;
+      text-transform:uppercase;letter-spacing:0.08em;
+      transition:all var(--transition);
+    }
+    .btn--primary{
+      background:var(--verdigris-deep);color:var(--lacquer);
+      border:1px solid var(--verdigris);
+    }
+    .btn--primary:hover{background:var(--verdigris)}
+    .btn--secondary{
+      color:var(--text-muted);border:1px solid var(--border);
+    }
+    .btn--secondary:hover{border-color:var(--border-strong);color:var(--verdigris)}
+    .btn--new-model{
+      color:var(--verdigris-pale);border:1px solid var(--verdigris);
+      margin-top:0.8rem;
+    }
+    .btn--new-model:hover{background:rgba(80,200,180,0.06)}
+    @media(max-width:640px){
+      .hero__buttons{flex-direction:column;align-items:center}
+      .btn{width:100%;max-width:300px}
+    }
+
+    /* ─── Specs strip ─── */
+    .specs-strip{
+      display:flex;border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+    .specs-strip .spec{
+      flex:1;padding:1.8rem 1rem;text-align:center;
+      border-right:1px solid var(--border);
+    }
+    .specs-strip .spec:last-child{border-right:none}
+    .specs-strip .spec-num{
+      display:block;font-size:1.6rem;font-weight:200;
+      color:var(--verdigris);letter-spacing:-0.03em;
+    }
+    .specs-strip .spec-label{
+      font-size:0.6rem;color:var(--text-dim);
+      text-transform:uppercase;letter-spacing:0.15em;margin-top:0.3rem;
+    }
+    @media(max-width:640px){
+      .specs-strip{flex-wrap:wrap}
+      .specs-strip .spec{flex:1 1 50%;border-bottom:1px solid var(--border)}
+      .specs-strip .spec:nth-child(2){border-right:none}
+    }
+
+    /* ─── About ─── */
+    .about{
+      padding:4rem 1.5rem;
+      background:var(--lacquer-raised);
+      border-bottom:1px solid var(--border);
+    }
+    .about__inner{max-width:700px;margin:0 auto;text-align:center}
+    .about__title{
+      font-size:1rem;font-weight:400;text-transform:uppercase;
+      letter-spacing:0.2em;color:var(--verdigris);margin-bottom:1.5rem;
+    }
+    .about__content{
+      font-size:0.85rem;color:var(--text-muted);
+      line-height:1.9;letter-spacing:0.02em;
+    }
+    .about__content strong{color:var(--text);font-weight:500}
+
+    .brand-strip{
+      display:flex;justify-content:center;gap:0;
+      margin-top:2rem;border:1px solid var(--border);
+    }
+    .brand-strip span{
+      padding:0.5rem 1.5rem;font-size:0.7rem;
+      color:var(--text-dim);text-transform:uppercase;
+      letter-spacing:0.1em;border-right:1px solid var(--border);
+    }
+    .brand-strip span:last-child{border-right:none}
+    .brand-strip span:first-child{color:var(--verdigris-pale)}
+
+    .footer{
+      padding:1.2rem 1.5rem;text-align:center;
+      font-size:0.72rem;color:var(--text-dim);
+      letter-spacing:0.04em;
+    }
+    .footer a{color:var(--verdigris);text-decoration:none}
+  </style>
+</head>
+<body>
+  <span class="design-ref">✦ Industrial Teal</span>
+
+  <header class="header">
+    <div class="header__inner">
+      <a href="../" class="header__logo"><span style="font-size:0.9rem;color:var(--verdigris)">⏚</span> <span>Shenzhen Luosheng</span></a>
+      <nav class="header__nav">
+        <a href="#" class="cta-new">New Model</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__eyebrow">Shenzhen Luosheng Digital Technology Firm</div>
+      <p class="hero__sub">Used <span class="accent">Power</span> Banks</p>
+      <p class="hero__sub2">Premium Quality · Wholesale Volume</p>
+      <p class="hero__desc">
+        Anker · Romoss · More Brands<br/>
+        MOQ 1 Ton (4,400 PCS) · Dongguan, China
+      </p>
+      <div class="hero__buttons">
+        <a href="#" class="btn btn--primary">📦 Details</a>
+        <a href="#" class="btn btn--secondary">★ Reviews</a>
+        <a href="#" class="btn btn--secondary">📸 Album</a>
+      </div>
+      <div style="margin-top:1rem"><a href="#" class="btn btn--new-model">New Model →</a></div>
+    </div>
+  </section>
+
+  <div class="specs-strip">
+    <div class="spec"><span class="spec-num">5M+</span><span class="spec-label">Units Sold</span></div>
+    <div class="spec"><span class="spec-num">98%</span><span class="spec-label">Positive</span></div>
+    <div class="spec"><span class="spec-num">100T+</span><span class="spec-label">Per Month</span></div>
+    <div class="spec"><span class="spec-num">30</span><span class="spec-label">Countries</span></div>
+  </div>
+
+  <section class="about">
+    <div class="about__inner">
+      <h2 class="about__title">About</h2>
+      <div class="about__content">
+        <p><strong>Shenzhen Luosheng Digital Technology Firm</strong> — wholesale supplier of premium used and brand-new power banks. Specializing in <strong>Anker, Romoss and more</strong> at competitive bulk prices. Located in Dongguan, China. Strict QC — <strong style="color:var(--verdigris)">99.5% works well</strong>.</p>
+      </div>
+      <div class="brand-strip">
+        <span>Anker</span>
+        <span>Romoss</span>
+        <span>10,000–30,000 mAh</span>
+        <span>Magnetic Wireless</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 Shenzhen Luosheng Digital Technology Firm — <a href="../">← Back to Design Browser</a>
+  </footer>
+</body>
+</html>
