@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glass Frost — Design ✦ Luosheng Power Banks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200..900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#0c0e1a;--bg2:#11132a;
+      --frost:rgba(255,255,255,0.04);--frost-border:rgba(255,255,255,0.06);
+      --frost-card:rgba(255,255,255,0.03);
+      --pastel-blue:#b8c6ff;--pastel-pink:#e8b4f8;--pastel-lavender:#c4b5fd;
+      --text:#e2e8ff;--text-muted:#8b92b0;
+      --radius:20px;--radius-lg:28px;
+      --transition:0.4s cubic-bezier(0.23,1,0.32,1);
+    }
+    body{
+      font-family:'Outfit','Tajawal',system-ui,sans-serif;
+      background:var(--bg);color:var(--text);
+      -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
+      background-image:radial-gradient(ellipse at 20% 50%,rgba(184,198,255,0.03) 0%,transparent 50%),radial-gradient(ellipse at 80% 50%,rgba(232,180,248,0.03) 0%,transparent 50%);
+    }
+    [dir="rtl"] body{font-family:'Tajawal','Outfit',sans-serif}
+    .lang-toggle{position:fixed;top:10px;right:10px;z-index:9999;display:flex;align-items:center;gap:5px;padding:4px 12px;border-radius:50px;font-size:10px;font-weight:500;background:var(--frost-card);color:var(--pastel-blue);border:1px solid var(--frost-border);cursor:pointer;font-family:'Outfit','Tajawal',sans-serif;transition:all var(--transition);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .lang-toggle:hover{border-color:rgba(184,198,255,0.2)}
+
+    .header{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.8rem 1.5rem;background:rgba(12,14,26,0.5);backdrop-filter:blur(30px) saturate(1.5);-webkit-backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--frost-border)}
+    .header__inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .header__logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:var(--text);font-weight:600;font-size:0.8rem}
+    .header__nav{display:flex;align-items:center;gap:1rem}
+    .header__nav a{text-decoration:none;color:var(--text-muted);font-size:0.8rem;font-weight:500;padding:0.4rem 1.2rem;border-radius:50px;border:1px solid transparent;transition:all var(--transition)}
+    .header__nav a:hover{background:var(--frost);border-color:var(--frost-border);color:var(--pastel-blue)}
+    .header__nav .cta-new{background:linear-gradient(135deg,rgba(184,198,255,0.12),rgba(232,180,248,0.08));border:1px solid rgba(184,198,255,0.12);color:var(--pastel-blue);font-weight:600;backdrop-filter:blur(10px)}
+
+    .hero{min-height:100vh;padding:7rem 1.5rem 3rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .hero__bg{position:absolute;inset:0;z-index:0;background:url('../../bg-hero.jpg') center/cover no-repeat;opacity:0.04;filter:saturate(0.2) blur(2px)}
+    .hero__orb{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(184,198,255,0.04),transparent 70%);top:-200px;left:-200px;z-index:0;pointer-events:none}
+    .hero__orb2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(232,180,248,0.03),transparent 70%);bottom:-150px;right:-150px;z-index:0}
+    .hero__inner{max-width:780px;width:100%;text-align:center;position:relative;z-index:2}
+    .hero__sub{
+      font-size:clamp(2.8rem,8vw,5rem);font-weight:200;
+      line-height:1.05;color:var(--text);margin-bottom:0.5rem;
+      letter-spacing:-0.03em;
+    }
+    .hero__sub .accent{font-weight:700;background:linear-gradient(135deg,var(--pastel-blue),var(--pastel-pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero__sub2{font-size:clamp(0.9rem,1.8vw,1.1rem);font-weight:500;color:var(--text-muted);margin-bottom:2rem;letter-spacing:0.02em}
+    .hero__glass{
+      display:inline-block;padding:0.6rem 1.5rem;border-radius:50px;
+      background:var(--frost-card);border:1px solid var(--frost-border);
+      backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+      margin-bottom:2.5rem;font-size:0.85rem;color:var(--text-muted);
+    }
+    .hero__buttons{display:flex;flex-wrap:wrap;gap:0.8rem;justify-content:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:0.8rem 2rem;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all var(--transition)}
+    .btn--primary{background:var(--frost-card);border:1px solid rgba(184,198,255,0.12);color:var(--pastel-blue);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .btn--primary:hover{background:rgba(184,198,255,0.06);border-color:rgba(184,198,255,0.25);transform:translateY(-2px)}
+    .btn--secondary{background:transparent;color:var(--text-muted);border:1px solid var(--frost-border)}
+    .btn--secondary:hover{border-color:rgba(184,198,255,0.15);color:var(--text)}
+    .btn--new-model{background:linear-gradient(135deg,rgba(184,198,255,0.06),rgba(232,180,248,0.04));border:1px solid rgba(232,180,248,0.08);color:var(--pastel-pink);margin-top:0.5rem;backdrop-filter:blur(10px)}
+    .btn--new-model:hover{border-color:rgba(232,180,248,0.2);transform:translateY(-2px)}
+    @media(max-width:640px){.hero__buttons{flex-direction:column;align-items:center}.btn{width:100%;max-width:300px}}
+
+    .glass-strip{display:flex;gap:1px;max-width:850px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:5}
+    .glass-strip .stat{flex:1;padding:1.8rem 1rem;text-align:center;background:var(--frost-card);border:1px solid var(--frost-border);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+    .glass-strip .stat:first-child{border-radius:16px 0 0 16px}
+    .glass-strip .stat:last-child{border-radius:0 16px 16px 0}
+    .glass-strip .stat-num{display:block;font-size:1.6rem;font-weight:600;background:linear-gradient(135deg,var(--pastel-blue),var(--pastel-lavender));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass-strip .stat-label{font-size:0.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.12em;margin-top:0.2rem}
+    @media(max-width:640px){.glass-strip{flex-wrap:wrap}.glass-strip .stat{flex:1 1 50%}.glass-strip .stat:first-child{border-radius:16px 0 0 0}.glass-strip .stat:nth-child(2){border-radius:0 16px 0 0}.glass-strip .stat:nth-child(3){border-radius:0 0 0 16px}.glass-strip .stat:last-child{border-radius:0 0 16px 0}}
+
+    .about{padding:4rem 1.5rem;text-align:center}
+    .about__inner{max-width:650px;margin:0 auto}
+    .about__title{font-size:1rem;font-weight:300;letter-spacing:0.15em;color:var(--pastel-blue);margin-bottom:1rem;text-transform:uppercase}
+    .about__content{font-size:0.85rem;color:var(--text-muted);line-height:1.9;background:var(--frost-card);padding:2rem;border-radius:var(--radius-lg);border:1px solid var(--frost-border);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+    .about__content strong{color:var(--pastel-blue);font-weight:600}
+    .frost-pills{display:flex;justify-content:center;gap:0.8rem;margin-top:1.5rem;flex-wrap:wrap}
+    .frost-pill{padding:0.4rem 1.2rem;border-radius:50px;background:var(--frost-card);border:1px solid var(--frost-border);font-size:0.75rem;color:var(--text-muted);backdrop-filter:blur(10px)}
+
+    .footer{padding:1.2rem 1.5rem;text-align:center;font-size:0.72rem;color:var(--text-muted);border-top:1px solid var(--frost-border)}
+    .footer a{color:var(--pastel-blue);text-decoration:none}
+  </style>
+</head>
+<body>
+  <button class="lang-toggle" onclick="toggleLang()"><span class="flag">🇸🇦</span> <span id="langLabel">عربي</span></button>
+
+  <header class="header">
+    <div class="header__inner">
+      <a href="../" class="header__logo"><span style="font-size:0.9rem;color:var(--pastel-blue)">◇</span> <span data-en="Luosheng" data-ar="لوشنغ">Luosheng</span></a>
+      <nav class="header__nav">
+        <a href="#" class="cta-new" data-en="New" data-ar="جديد">New</a>
+        <a href="#" data-en="Contact" data-ar="اتصال">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__orb"></div>
+    <div class="hero__orb2"></div>
+    <div class="hero__inner">
+      <p class="hero__sub"><span data-en="Premium" data-ar="فاخر">Premium</span> <span class="accent" data-en="Power" data-ar="باور">Power</span><br/><span data-en="Banks" data-ar="بانك">Banks</span></p>
+      <p class="hero__sub2" data-en="Shenzhen Luosheng · Digital Technology Firm" data-ar="شنتشن لوشنغ · شركة التكنولوجيا الرقمية">Shenzhen Luosheng · Digital Technology Firm</p>
+      <div class="hero__glass" data-en="✦ Anker · Romoss · MOQ 1 Ton ✦" data-ar="✦ أنكر · روموس · الحد الأدنى 1 طن ✦">✦ Anker · Romoss · MOQ 1 Ton ✦</div>
+      <div class="hero__buttons">
+        <a href="#" class="btn btn--primary" data-en="📦 View Details" data-ar="📦 عرض التفاصيل">📦 View Details</a>
+        <a href="#" class="btn btn--secondary" data-en="★ Reviews" data-ar="★ تقييمات">★ Reviews</a>
+        <a href="#" class="btn btn--secondary" data-en="📸 Album" data-ar="📸 ألبوم">📸 Album</a>
+        <a href="#" class="btn btn--new-model" data-en="◇ New Model" data-ar="◇ موديل جديد">◇ New Model</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="glass-strip">
+    <div class="stat"><span class="stat-num">5M</span><span class="stat-label" data-en="Sold" data-ar="مباع">Sold</span></div>
+    <div class="stat"><span class="stat-num">98%</span><span class="stat-label" data-en="Positive" data-ar="إيجابي">Positive</span></div>
+    <div class="stat"><span class="stat-num">100T</span><span class="stat-label" data-en="Monthly" data-ar="شهرياً">Monthly</span></div>
+    <div class="stat"><span class="stat-num">30+</span><span class="stat-label" data-en="Markets" data-ar="سوق">Markets</span></div>
+  </div>
+
+  <section class="about">
+    <div class="about__inner">
+      <h2 class="about__title" data-en="About" data-ar="حول">About</h2>
+      <div class="about__content">
+        <strong data-en="Shenzhen Luosheng" data-ar="شنتشن لوشنغ">Shenzhen Luosheng</strong> — <span data-en="wholesale supplier of premium used and new power banks. Specializing in" data-ar="مورّد جملة للباور بانك المستعمل الفاخر والجديد. متخصصون في">wholesale supplier of premium used and new power banks. Specializing in</span> <strong data-en="Anker, Romoss and more" data-ar="أنكر، روموس والمزيد">Anker, Romoss and more</strong>. <span data-en="Strict QC · Dongguan, China." data-ar="فحص جودة · دونغقوان، الصين.">Strict QC · Dongguan, China.</span>
+        <div class="frost-pills"><span>Anker</span><span data-en="Romoss" data-ar="روموس">Romoss</span><span data-en="10k–30k mAh" data-ar="10k–30k ماه">10k–30k mAh</span><span data-en="Wireless" data-ar="لاسلكي">Wireless</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">© 2026 <a href="../"><span data-en="← Back" data-ar="→ رجوع">← Back</span></a></footer>
+
+  <script>
+    let currentLang='en'
+    function toggleLang(){currentLang=currentLang==='en'?'ar':'en';document.querySelectorAll('[data-en][data-ar]').forEach(el=>{el.innerHTML=el.getAttribute('data-'+currentLang)});document.documentElement.lang=currentLang;document.documentElement.dir=currentLang==='ar'?'rtl':'ltr';document.getElementById('langLabel').textContent=currentLang==='en'?'عربي':'English';document.querySelector('.lang-toggle .flag').textContent=currentLang==='en'?'🇸🇦':'🇬🇧'}
+  </script>
+</body>
+</html>

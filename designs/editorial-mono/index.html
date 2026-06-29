@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editorial Mono — Design ✦ Luosheng Power Banks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--white:#fafafa;--black:#111111;--gray:#6b6b6b;--gray-light:#d4d4d4;--gray-lighter:#e8e8e8;--transition:0.3s ease}
+    body{font-family:'Inter','Tajawal',system-ui,sans-serif;background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.7;font-weight:400}
+    [dir="rtl"] body{font-family:'Tajawal','Inter',sans-serif;line-height:1.8}
+    .lang-toggle{position:fixed;top:10px;right:10px;z-index:9999;display:flex;align-items:center;gap:5px;padding:4px 12px;font-size:10px;font-weight:500;letter-spacing:0.08em;background:var(--black);color:var(--white);border:none;cursor:pointer;font-family:'Inter','Tajawal',sans-serif;transition:all var(--transition);text-transform:uppercase}
+    .lang-toggle:hover{opacity:0.8}
+
+    .header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 1.5rem;background:var(--white);border-bottom:1px solid var(--gray-lighter)}
+    .header__inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .header__logo{display:flex;align-items:center;gap:0.4rem;text-decoration:none;color:var(--black);font-weight:700;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase}
+    .header__nav{display:flex;align-items:center;gap:1.5rem}
+    .header__nav a{text-decoration:none;color:var(--gray);font-size:0.72rem;font-weight:500;letter-spacing:0.05em;transition:color var(--transition);text-transform:uppercase}
+    .header__nav a:hover{color:var(--black)}
+    .header__nav .cta-new{background:var(--black);color:var(--white);padding:0.4rem 1.2rem;font-weight:600;font-size:0.68rem;letter-spacing:0.08em}
+
+    .hero{min-height:100vh;padding:8rem 1.5rem 3rem;display:flex;align-items:center;justify-content:center;position:relative}
+    .hero__inner{max-width:780px;width:100%;text-align:center}
+    .hero__label{font-size:0.65rem;font-weight:500;letter-spacing:0.3em;color:var(--gray);margin-bottom:2rem;text-transform:uppercase}
+    .hero__sub{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3rem,9vw,6.5rem);font-weight:900;
+      line-height:1;color:var(--black);margin-bottom:1rem;
+      letter-spacing:-0.03em;
+    }
+    .hero__sub .accent{font-style:italic}
+    .hero__divider{width:40px;height:2px;background:var(--black);margin:1.5rem auto}
+    .hero__tagline{font-size:0.9rem;color:var(--gray);max-width:500px;margin:0 auto 2.5rem;line-height:1.8}
+    .hero__buttons{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:0.7rem 1.8rem;font-size:0.78rem;font-weight:600;text-decoration:none;transition:all var(--transition);letter-spacing:0.02em}
+    .btn--primary{background:var(--black);color:var(--white)}
+    .btn--primary:hover{opacity:0.85}
+    .btn--secondary{color:var(--black);border:1px solid var(--gray-light)}
+    .btn--secondary:hover{border-color:var(--black)}
+    .btn--new-model{background:transparent;color:var(--black);border-bottom:1px solid var(--black);border-radius:0;padding:0.5rem 0;margin-top:0.5rem;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase}
+    .btn--new-model:hover{opacity:0.6}
+    @media(max-width:640px){.hero__buttons{flex-direction:column;align-items:center}.btn{width:100%;max-width:280px}}
+
+    .stats-row{display:flex;max-width:900px;margin:0 auto;padding:0 1.5rem;border-top:1px solid var(--gray-lighter);border-bottom:1px solid var(--gray-lighter)}
+    .stats-row .stat{flex:1;padding:2rem 1rem;text-align:center;border-right:1px solid var(--gray-lighter)}
+    .stats-row .stat:last-child{border-right:none}
+    .stats-row .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--black);display:block}
+    .stats-row .stat-label{font-size:0.6rem;color:var(--gray);text-transform:uppercase;letter-spacing:0.12em;margin-top:0.2rem}
+    @media(max-width:640px){.stats-row{flex-wrap:wrap}.stats-row .stat{flex:1 1 50%;border-bottom:1px solid var(--gray-lighter)}.stats-row .stat:nth-child(2){border-right:none}}
+
+    .about{padding:5rem 1.5rem;text-align:center;max-width:650px;margin:0 auto}
+    .about__title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--black);margin-bottom:1rem}
+    .about__content{font-size:0.88rem;color:var(--gray);line-height:1.9}
+    .about__content strong{color:var(--black)}
+    .brand-line{display:flex;justify-content:center;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+    .brand-line span{font-size:0.7rem;font-weight:600;color:var(--gray);letter-spacing:0.12em;text-transform:uppercase;position:relative}
+    .brand-line span::after{content:'·';position:absolute;right:-1.2rem;color:var(--gray-light)}
+    .brand-line span:last-child::after{display:none}
+
+    .footer{padding:1.5rem;border-top:1px solid var(--gray-lighter);text-align:center;font-size:0.72rem;color:var(--gray)}
+    .footer a{color:var(--black);text-decoration:none;font-weight:600}
+  </style>
+</head>
+<body>
+  <button class="lang-toggle" onclick="toggleLang()"><span class="flag">🇸🇦</span> <span id="langLabel">عربي</span></button>
+
+  <header class="header">
+    <div class="header__inner">
+      <a href="../" class="header__logo"><span style="font-size:0.9rem">◆</span> <span data-en="LUOSHENG" data-ar="لوشنغ">LUOSHENG</span></a>
+      <nav class="header__nav">
+        <a href="#" class="cta-new" data-en="NEW" data-ar="جديد">NEW</a>
+        <a href="#" data-en="CONTACT" data-ar="اتصال">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="hero__label" data-en="Since 2018 · Shenzhen" data-ar="منذ 2018 · شنتشن">Since 2018 · Shenzhen</p>
+      <p class="hero__sub"><span data-en="Power" data-ar="باور">Power</span> <span class="accent" data-en="Banks" data-ar="بانك">Banks</span><br/><span data-en="Wholesale" data-ar="جملة">Wholesale</span></p>
+      <div class="hero__divider"></div>
+      <p class="hero__tagline"><span data-en="Anker, Romoss &amp; more — premium used power banks. B2B bulk supply from Dongguan, China." data-ar="أنكر، روموس والمزيد — باور بانك مستعمل فاخر. توريد جملة من دونغقوان، الصين.">Anker, Romoss &amp; more — premium used power banks. B2B bulk supply from Dongguan, China.</span></p>
+      <div class="hero__buttons">
+        <a href="#" class="btn btn--primary" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+        <a href="#" class="btn btn--secondary" data-en="Reviews" data-ar="تقييمات">Reviews</a>
+        <a href="#" class="btn btn--secondary" data-en="Album" data-ar="ألبوم">Album</a>
+        <a href="#" class="btn btn--new-model" data-en="↓ New Model" data-ar="↓ موديل جديد">↓ New Model</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num">5M+</span><span class="stat-label" data-en="UNITS SOLD" data-ar="وحدات مباعة">UNITS SOLD</span></div>
+    <div class="stat"><span class="stat-num">98%</span><span class="stat-label" data-en="FEEDBACK" data-ar="تقييم">FEEDBACK</span></div>
+    <div class="stat"><span class="stat-num">100T</span><span class="stat-label" data-en="MONTHLY" data-ar="شهرياً">MONTHLY</span></div>
+    <div class="stat"><span class="stat-num">30+</span><span class="stat-label" data-en="MARKETS" data-ar="أسواق">MARKETS</span></div>
+  </div>
+
+  <section class="about">
+    <h2 class="about__title" data-en="About" data-ar="حول">About</h2>
+    <div class="about__content">
+      <p><strong data-en="Shenzhen Luosheng Digital Technology Firm" data-ar="شركة شنتشن لوشنغ للتكنولوجيا الرقمية">Shenzhen Luosheng Digital Technology Firm</strong> <span data-en="— wholesale supplier of premium used power banks. Specializing in" data-ar="— مورّد جملة للباور بانك المستعمل الفاخر. متخصصون في">— wholesale supplier of premium used power banks. Specializing in</span> <strong data-en="Anker, Romoss and more" data-ar="أنكر، روموس والمزيد">Anker, Romoss and more</strong>. <span data-en="Strict QC. Dongguan, China." data-ar="فحص جودة صارم. دونغقوان، الصين.">Strict QC. Dongguan, China.</span></p>
+    </div>
+    <div class="brand-line"><span>Anker</span><span data-en="Romoss" data-ar="روموس">Romoss</span><span data-en="10,000–30,000 mAh" data-ar="10,000–30,000 ماه">10,000–30,000 mAh</span><span data-en="Magnetic" data-ar="مغناطيسي">Magnetic</span><span data-en="MOQ 1 Ton" data-ar="الحد الأدنى 1 طن">MOQ 1 Ton</span></div>
+  </section>
+
+  <footer class="footer">© 2026 <a href="../"><span data-en="← Back" data-ar="→ رجوع">← Back</span></a></footer>
+
+  <script>
+    let currentLang='en'
+    function toggleLang(){currentLang=currentLang==='en'?'ar':'en';document.querySelectorAll('[data-en][data-ar]').forEach(el=>{el.innerHTML=el.getAttribute('data-'+currentLang)});document.documentElement.lang=currentLang;document.documentElement.dir=currentLang==='ar'?'rtl':'ltr';document.getElementById('langLabel').textContent=currentLang==='en'?'عربي':'English';document.querySelector('.lang-toggle .flag').textContent=currentLang==='en'?'🇸🇦':'🇬🇧'}
+  </script>
+</body>
+</html>

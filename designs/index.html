@@ -4,172 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Design Browser — Luosheng Power Banks</title>
-  <meta name="description" content="Explore 3 premium design concepts for Shenzhen Luosheng Digital Technology Firm" />
+  <meta name="description" content="Explore 8 premium design concepts for Shenzhen Luosheng Digital Technology Firm" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&family=Playfair+Display:ital@0;1&family=Orbitron:wght@400;900&family=Prata&family=Anton&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --bg:#06080e;--text:#eaeef5;--text-muted:#7f8a9e;
-      --gold:#f0c27f;--gold-light:#f5d6a8;
-    }
-    body{
-      font-family:'Outfit',system-ui,sans-serif;
-      background:var(--bg);color:var(--text);
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-    }
-    .header{
-      padding:2rem 1.5rem 0;text-align:center;
-      max-width:900px;margin:0 auto;
-    }
-    .header h1{
-      font-size:clamp(1.8rem,4vw,3rem);
-      font-weight:800;letter-spacing:-0.03em;
-      color:var(--gold-light);
-      margin-bottom:0.5rem;
-    }
-    .header p{
-      color:var(--text-muted);font-size:1rem;
-      line-height:1.6;max-width:600px;margin:0 auto;
-    }
+    :root{--bg:#06080e;--text:#eaeef5;--text-muted:#7f8a9e;--gold:#f0c27f;--gold-dark:#d4a04a;--gold-light:#f5d6a8}
+    body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    .header{padding:2rem 1.5rem 0;text-align:center;max-width:900px;margin:0 auto}
+    .header h1{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;color:var(--gold-light);margin-bottom:0.5rem}
+    .header p{color:var(--text-muted);font-size:1rem;line-height:1.6;max-width:600px;margin:0 auto}
     .header .accent{color:var(--gold);font-weight:700}
 
-    /* ─── Design grid ─── */
-    .designs-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:1.5rem;
-      max-width:1100px;margin:3rem auto;
-      padding:0 1.5rem;
-    }
-    .design-card{
-      background:linear-gradient(145deg,#0c0f18,#0f131e);
-      border:1px solid rgba(240,194,127,0.12);
-      border-radius:20px;
-      overflow:hidden;
-      transition:transform 0.4s cubic-bezier(0.23,1,0.32,1),
-                 box-shadow 0.4s ease;
-    }
-    .design-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px rgba(240,194,127,0.05);
-    }
-    .design-preview{
-      aspect-ratio:16/10;
-      display:flex;align-items:center;justify-content:center;
-      position:relative;
-      overflow:hidden;
-    }
-    .design-preview .badge{
-      position:absolute;top:12px;left:12px;
-      padding:0.25rem 0.7rem;
-      border-radius:100px;
-      font-size:0.7rem;font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      border:1px solid rgba(255,255,255,0.15);
-      backdrop-filter:blur(8px);
-    }
-    .dp1{background:linear-gradient(135deg,#0a0d15,#121726)}
-    .dp1 .badge{background:rgba(240,194,127,0.2);color:#f0c27f;border-color:rgba(240,194,127,0.3)}
-    .dp2{background:linear-gradient(135deg,#f8f9fc,#eef1f8)}
-    .dp2 .badge{background:rgba(44,22,110,0.15);color:#2c166e;border-color:rgba(44,22,110,0.2)}
-    .dp3{background:linear-gradient(135deg,#080b0e,#0f1419)}
-    .dp3 .badge{background:rgba(80,200,180,0.15);color:#50c8b4;border-color:rgba(80,200,180,0.25)}
+    .designs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.5rem;max-width:1100px;margin:3rem auto;padding:0 1.5rem}
+    .design-card{background:linear-gradient(145deg,#0c0f18,#0f131e);border:1px solid rgba(240,194,127,0.12);border-radius:20px;overflow:hidden;transition:transform 0.4s cubic-bezier(.23,1,.32,1),box-shadow 0.4s}
+    .design-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px rgba(240,194,127,0.05)}
+    .design-preview{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .design-preview .badge{position:absolute;top:12px;left:12px;padding:0.25rem 0.7rem;border-radius:100px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(8px)}
+
+    .dp1{background:linear-gradient(135deg,#0a0d15,#121726)}.dp1 .badge{background:rgba(240,194,127,0.2);color:#f0c27f;border-color:rgba(240,194,127,0.3)}
+    .dp2{background:linear-gradient(135deg,#f8f9fc,#eef1f8)}.dp2 .badge{background:rgba(44,22,110,0.12);color:#2c166e;border-color:rgba(44,22,110,0.15)}
+    .dp3{background:linear-gradient(135deg,#080b0e,#0f1419)}.dp3 .badge{background:rgba(80,200,180,0.12);color:#50c8b4;border-color:rgba(80,200,180,0.2)}
+    .dp4{background:linear-gradient(135deg,#0a0b1e,#12142e)}.dp4 .badge{background:rgba(0,240,255,0.1);color:#00f0ff;border-color:rgba(0,240,255,0.15)}
+    .dp5{background:linear-gradient(135deg,#f5efe6,#e8ddd0)}.dp5 .badge{background:rgba(200,100,74,0.12);color:#c8644a;border-color:rgba(200,100,74,0.15)}
+    .dp6{background:#fafafa}.dp6 .badge{background:rgba(0,0,0,0.05);color:#111;border-color:rgba(0,0,0,0.1)}
+    .dp7{background:linear-gradient(135deg,#0c0e1a,#151837)}.dp7 .badge{background:rgba(184,198,255,0.08);color:#b8c6ff;border-color:rgba(184,198,255,0.12)}
+    .dp8{background:linear-gradient(135deg,#120a0a,#1a0e0e)}.dp8 .badge{background:rgba(230,57,70,0.12);color:#e63946;border-color:rgba(230,57,70,0.2)}
 
     .design-info{padding:1.5rem}
-    .design-info h2{
-      font-size:1.2rem;font-weight:700;
-      margin-bottom:0.3rem;
-    }
-    .design-info .tagline{
-      font-size:0.85rem;color:var(--text-muted);
-      margin-bottom:0.8rem;
-    }
-    .design-info .desc{
-      font-size:0.9rem;color:var(--text-muted);
-      line-height:1.6;margin-bottom:1rem;
-    }
-    .design-info .tokens{
-      display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;
-    }
-    .token-swatch{
-      width:28px;height:28px;border-radius:50%;
-      border:2px solid rgba(255,255,255,0.1);
-    }
-    .design-info .actions{
-      display:flex;gap:0.6rem;flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-flex;align-items:center;gap:0.4rem;
-      padding:0.55rem 1.2rem;border-radius:50px;
-      font-size:0.82rem;font-weight:600;
-      text-decoration:none;
-      transition:all 0.3s;
-      border:1px solid rgba(240,194,127,0.25);
-      color:var(--gold-light);
-    }
+    .design-info h2{font-size:1.2rem;font-weight:700;margin-bottom:0.3rem}
+    .design-info .tagline{font-size:0.85rem;color:var(--text-muted);margin-bottom:0.8rem}
+    .design-info .desc{font-size:0.9rem;color:var(--text-muted);line-height:1.6;margin-bottom:1rem}
+    .design-info .tokens{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem}
+    .token-swatch{width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.1)}
+    .design-info .actions{display:flex;gap:0.6rem;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.55rem 1.2rem;border-radius:50px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all .3s;border:1px solid rgba(240,194,127,0.25);color:var(--gold-light)}
     .btn:hover{border-color:var(--gold);background:rgba(240,194,127,0.08);transform:translateY(-1px)}
-    .btn--primary{
-      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
-      color:#1a1206;border-color:transparent;
-      font-weight:700;
-    }
-    .btn--primary:hover{
-      background:linear-gradient(135deg,var(--gold-light),var(--gold));
-      box-shadow:0 4px 20px rgba(240,194,127,0.3);
-    }
+    .btn--primary{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#1a1206;border-color:transparent;font-weight:700}
+    .btn--primary:hover{background:linear-gradient(135deg,var(--gold-light),var(--gold));box-shadow:0 4px 20px rgba(240,194,127,0.3)}
 
-    /* ─── Impeccable section ─── */
-    .impeccable-section{
-      max-width:900px;margin:3rem auto;padding:0 1.5rem;
-    }
-    .impeccable-card{
-      background:linear-gradient(145deg,#0c0f18,#111624);
-      border:1px solid rgba(80,200,180,0.15);
-      border-radius:20px;padding:2rem;
-    }
-    .impeccable-card h2{
-      font-size:1.4rem;font-weight:700;margin-bottom:0.5rem;
-      color:#50c8b4;
-    }
-    .impeccable-card p{
-      color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin-bottom:1rem;
-    }
-    .impeccable-card .features{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:0.8rem;margin:1rem 0;
-    }
-    .impeccable-card .feature{
-      padding:0.8rem 1rem;
-      background:rgba(80,200,180,0.04);
-      border:1px solid rgba(80,200,180,0.08);
-      border-radius:10px;
-      font-size:0.85rem;
-    }
+    .impeccable-section{max-width:900px;margin:3rem auto;padding:0 1.5rem}
+    .impeccable-card{background:linear-gradient(145deg,#0c0f18,#111624);border:1px solid rgba(80,200,180,0.15);border-radius:20px;padding:2rem}
+    .impeccable-card h2{font-size:1.4rem;font-weight:700;margin-bottom:0.5rem;color:#50c8b4}
+    .impeccable-card p{color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin-bottom:1rem}
+    .impeccable-card .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.8rem;margin:1rem 0}
+    .impeccable-card .feature{padding:0.8rem 1rem;background:rgba(80,200,180,0.04);border:1px solid rgba(80,200,180,0.08);border-radius:10px;font-size:0.85rem}
     .impeccable-card .feature strong{color:#eaeef5;display:block;margin-bottom:0.2rem}
     .impeccable-card .feature span{color:var(--text-muted);font-size:0.8rem}
 
-    .footer{
-      text-align:center;padding:2rem;
-      color:var(--text-muted);font-size:0.8rem;
-      border-top:1px solid rgba(240,194,127,0.06);
-      margin-top:2rem;
-    }
+    .footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:0.8rem;border-top:1px solid rgba(240,194,127,0.06);margin-top:2rem}
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>✦ Design Browser</h1>
-    <p>Three distinct visual directions for <span class="accent">Shenzhen Luosheng Digital Technology Firm</span> — premium used power banks wholesale.</p>
+    <h1>✦ All 8 Designs</h1>
+    <p>Eight distinct visual directions for <span class="accent">Shenzhen Luosheng Digital Technology Firm</span> — premium used power banks wholesale.</p>
   </div>
 
   <div class="designs-grid">
-    <!-- Design 1: Dark Gold -->
+    <!-- 1: Dark Gold -->
     <div class="design-card">
-      <div class="design-preview dp1">
-        <span class="badge">✦ Dark Gold</span>
+      <div class="design-preview dp1"><span class="badge">✦ Dark Gold</span>
         <div style="text-align:center;padding:1rem">
           <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;font-style:italic;color:#f0c27f;text-shadow:0 0 40px rgba(240,194,127,0.2)">Power<br/>Banks</div>
           <div style="font-size:0.7rem;color:#7f8a9e;margin-top:0.3rem;letter-spacing:0.15em;text-transform:uppercase">Premium Wholesale</div>
@@ -178,25 +73,20 @@
       <div class="design-info">
         <h2 style="color:#f0c27f">Dark Gold</h2>
         <div class="tagline">Luxury · Warm · Premium</div>
-        <div class="desc">Refined dark luxury with rich gold accents. Glassmorphism cards with gold-tinted borders. Playfair Display italic headings. Warm cinematic feel. Inspired by Linear + Impeccable kinpaku tokens.</div>
+        <div class="desc">Refined dark luxury with rich gold accents. Glassmorphism cards with gold-tinted borders. Playfair italic headings.</div>
         <div class="tokens">
           <span class="token-swatch" style="background:#06080e;border-color:rgba(240,194,127,0.3)"></span>
           <span class="token-swatch" style="background:#f0c27f"></span>
           <span class="token-swatch" style="background:#d4a04a"></span>
-          <span class="token-swatch" style="background:#f5d6a8"></span>
           <span class="token-swatch" style="background:#0c0f18"></span>
         </div>
-        <div class="actions">
-          <a href="dark-gold/" class="btn btn--primary">👁 View Design</a>
-          <a href="https://github.com/yamannewtab2-max/luosheng-power-banks/tree/main/designs/dark-gold" class="btn" target="_blank">Source</a>
-        </div>
+        <div class="actions"><a href="dark-gold/" class="btn btn--primary">👁 View</a></div>
       </div>
     </div>
 
-    <!-- Design 2: Clean White -->
+    <!-- 2: Clean White -->
     <div class="design-card">
-      <div class="design-preview dp2" style="color:#1a1a2e">
-        <span class="badge" style="background:rgba(44,22,110,0.12);color:#2c166e;border-color:rgba(44,22,110,0.15)">✦ Clean White</span>
+      <div class="design-preview dp2"><span class="badge">✦ Clean White</span>
         <div style="text-align:center;padding:1rem">
           <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;font-style:italic;color:#2c166e">Power<br/>Banks</div>
           <div style="font-size:0.7rem;color:#7f8a9e;margin-top:0.3rem;letter-spacing:0.15em;text-transform:uppercase">Premium Wholesale</div>
@@ -205,25 +95,20 @@
       <div class="design-info">
         <h2 style="color:#2c166e">Clean White</h2>
         <div class="tagline">Professional · Airy · Trustworthy</div>
-        <div class="desc">Stripe-inspired clean white background with deep navy headings and a sophisticated purple-gold accent. Light, airy B2B feel with precise typography and blue-tinted shadows.</div>
+        <div class="desc">Stripe-inspired clean white with navy headings and a sophisticated purple-gold accent. Light B2B feel.</div>
         <div class="tokens">
           <span class="token-swatch" style="background:#ffffff;border-color:#ddd"></span>
           <span class="token-swatch" style="background:#2c166e"></span>
           <span class="token-swatch" style="background:#e8c56d"></span>
           <span class="token-swatch" style="background:#f0f2f6"></span>
-          <span class="token-swatch" style="background:#1a1a2e"></span>
         </div>
-        <div class="actions">
-          <a href="light-premium/" class="btn btn--primary">👁 View Design</a>
-          <a href="https://github.com/yamannewtab2-max/luosheng-power-banks/tree/main/designs/light-premium" class="btn" target="_blank">Source</a>
-        </div>
+        <div class="actions"><a href="light-premium/" class="btn btn--primary">👁 View</a></div>
       </div>
     </div>
 
-    <!-- Design 3: Industrial Teal -->
+    <!-- 3: Industrial Teal -->
     <div class="design-card">
-      <div class="design-preview dp3">
-        <span class="badge" style="background:rgba(80,200,180,0.12);color:#50c8b4;border-color:rgba(80,200,180,0.2)">✦ Industrial Teal</span>
+      <div class="design-preview dp3"><span class="badge">✦ Industrial Teal</span>
         <div style="text-align:center;padding:1rem">
           <div style="font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:300;letter-spacing:-0.03em;text-transform:uppercase;color:#ccd6e0">POWER<br/>BANKS</div>
           <div style="font-size:0.6rem;color:#50c8b4;margin-top:0.3rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:300">Premium Wholesale</div>
@@ -232,57 +117,144 @@
       <div class="design-info">
         <h2 style="color:#50c8b4">Industrial Teal</h2>
         <div class="tagline">Bold · Sharp · Technical</div>
-        <div class="desc">Impeccable-inspired dark lacquer with verdigris patina accent. Zero border-radius, weight-300 uppercase display text, compressed engineering feel. Monochrome industrial precision.</div>
+        <div class="desc">Impeccable-inspired lacquer-black with verdigris accent. Zero radius, uppercase weight-300 display.</div>
         <div class="tokens">
           <span class="token-swatch" style="background:#080b0e"></span>
           <span class="token-swatch" style="background:#50c8b4"></span>
           <span class="token-swatch" style="background:#1a2228"></span>
           <span class="token-swatch" style="background:#ccd6e0"></span>
-          <span class="token-swatch" style="background:#0f1419"></span>
         </div>
-        <div class="actions">
-          <a href="industrial-teal/" class="btn btn--primary">👁 View Design</a>
-          <a href="https://github.com/yamannewtab2-max/luosheng-power-banks/tree/main/designs/industrial-teal" class="btn" target="_blank">Source</a>
+        <div class="actions"><a href="industrial-teal/" class="btn btn--primary">👁 View</a></div>
+      </div>
+    </div>
+
+    <!-- 4: Neon Cyber -->
+    <div class="design-card">
+      <div class="design-preview dp4"><span class="badge">✦ Neon Cyber</span>
+        <div style="text-align:center;padding:1rem">
+          <div style="font-family:'Orbitron',sans-serif;font-size:1.3rem;font-weight:900;color:#00f0ff;text-shadow:0 0 30px rgba(0,240,255,0.3)">POWER BANKS</div>
+          <div style="font-size:0.5rem;color:#ff00aa;margin-top:0.2rem;letter-spacing:0.3em">CYBER·WHOLESALE</div>
         </div>
+      </div>
+      <div class="design-info">
+        <h2 style="color:#00f0ff">Neon Cyber</h2>
+        <div class="tagline">Futuristic · Glow · Synthwave</div>
+        <div class="desc">Dark cyberpunk with neon cyan and magenta. Grid overlay, glow effects, Orbitron font. Tech energy.</div>
+        <div class="tokens">
+          <span class="token-swatch" style="background:#0a0b1e"></span>
+          <span class="token-swatch" style="background:#00f0ff"></span>
+          <span class="token-swatch" style="background:#ff00aa"></span>
+          <span class="token-swatch" style="background:#7000ff"></span>
+        </div>
+        <div class="actions"><a href="neon-cyber/" class="btn btn--primary">👁 View</a></div>
+      </div>
+    </div>
+
+    <!-- 5: Nature Earth -->
+    <div class="design-card">
+      <div class="design-preview dp5"><span class="badge">✦ Nature Earth</span>
+        <div style="text-align:center;padding:1rem">
+          <div style="font-family:'Prata',serif;font-size:1.5rem;color:#3d3028">Power Banks</div>
+          <div style="font-size:0.6rem;color:#7a8b5e;margin-top:0.2rem;letter-spacing:0.12em;text-transform:uppercase">Nature · Earth · Trust</div>
+        </div>
+      </div>
+      <div class="design-info">
+        <h2 style="color:#c8644a">Nature Earth</h2>
+        <div class="tagline">Organic · Warm · Earthy</div>
+        <div class="desc">Terracotta, olive, cream palette. Prata serif. Warm, trustworthy, sustainable organic feel.</div>
+        <div class="tokens">
+          <span class="token-swatch" style="background:#f5efe6;border-color:#ddd"></span>
+          <span class="token-swatch" style="background:#c8644a"></span>
+          <span class="token-swatch" style="background:#7a8b5e"></span>
+          <span class="token-swatch" style="background:#3d3028"></span>
+        </div>
+        <div class="actions"><a href="nature-earth/" class="btn btn--primary">👁 View</a></div>
+      </div>
+    </div>
+
+    <!-- 6: Editorial Mono -->
+    <div class="design-card">
+      <div class="design-preview dp6"><span class="badge">✦ Editorial Mono</span>
+        <div style="text-align:center;padding:1rem">
+          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#111">Power Banks</div>
+          <div style="font-size:0.55rem;color:#6b6b6b;margin-top:0.2rem;letter-spacing:0.2em;text-transform:uppercase">Editorial · Volume</div>
+        </div>
+      </div>
+      <div class="design-info">
+        <h2 style="color:#111">Editorial Mono</h2>
+        <div class="tagline">High-contrast · Serif · Magazine</div>
+        <div class="desc">B&amp;W editorial layout with Playfair Display bold serif. Magazine-grid precision. Stark minimalism.</div>
+        <div class="tokens">
+          <span class="token-swatch" style="background:#fafafa;border-color:#ddd"></span>
+          <span class="token-swatch" style="background:#111"></span>
+          <span class="token-swatch" style="background:#6b6b6b"></span>
+        </div>
+        <div class="actions"><a href="editorial-mono/" class="btn btn--primary">👁 View</a></div>
+      </div>
+    </div>
+
+    <!-- 7: Glass Frost -->
+    <div class="design-card">
+      <div class="design-preview dp7"><span class="badge">✦ Glass Frost</span>
+        <div style="text-align:center;padding:1rem">
+          <div style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:200;color:#e2e8ff">Power Banks</div>
+          <div style="font-size:0.55rem;color:#b8c6ff;margin-top:0.2rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:300">Frost · Glass · Light</div>
+        </div>
+      </div>
+      <div class="design-info">
+        <h2 style="color:#b8c6ff">Glass Frost</h2>
+        <div class="tagline">Ethereal · Frosted · Translucent</div>
+        <div class="desc">Deep space with frosted glass cards. Pastel blue/lavender/pink. Ambient orbs, ethereal light.</div>
+        <div class="tokens">
+          <span class="token-swatch" style="background:#0c0e1a"></span>
+          <span class="token-swatch" style="background:#b8c6ff"></span>
+          <span class="token-swatch" style="background:#e8b4f8"></span>
+          <span class="token-swatch" style="background:#c4b5fd"></span>
+        </div>
+        <div class="actions"><a href="glass-frost/" class="btn btn--primary">👁 View</a></div>
+      </div>
+    </div>
+
+    <!-- 8: Bold Energy -->
+    <div class="design-card">
+      <div class="design-preview dp8"><span class="badge">✦ Bold Energy</span>
+        <div style="text-align:center;padding:1rem">
+          <div style="font-family:'Anton',sans-serif;font-size:1.6rem;color:#e63946">POWER</div>
+          <div style="font-size:0.55rem;color:#f4a261;margin-top:0.1rem;letter-spacing:0.15em;text-transform:uppercase">Energy · Impact</div>
+        </div>
+      </div>
+      <div class="design-info">
+        <h2 style="color:#e63946">Bold Energy</h2>
+        <div class="tagline">Dynamic · Red · Angular</div>
+        <div class="desc">Dark with crimson red accent + gold. Diagonal angles, Anton impact typography. High-energy confidence.</div>
+        <div class="tokens">
+          <span class="token-swatch" style="background:#120a0a"></span>
+          <span class="token-swatch" style="background:#e63946"></span>
+          <span class="token-swatch" style="background:#f4a261"></span>
+        </div>
+        <div class="actions"><a href="bold-energy/" class="btn btn--primary">👁 View</a></div>
       </div>
     </div>
   </div>
 
-  <!-- Impeccable Evaluation -->
+  <!-- Impeccable -->
   <div class="impeccable-section">
     <div class="impeccable-card">
       <h2>⚡ Impeccable Evaluation</h2>
-      <p>
-        <strong style="color:#50c8b4">pabakaus/impeccable</strong> (42K ★) — a design guidance system for AI coding tools.
-        We installed it in the repo at <code style="color:#eaeef5;font-size:0.85em">.impeccable/</code>.
-      </p>
+      <p><strong style="color:#50c8b4">pbakaus/impeccable</strong> (42K ★) — installed at <code style="color:#eaeef5;font-size:0.85em">.impeccable/</code>. Design guidance for AI coding tools.</p>
       <div class="features">
-        <div class="feature">
-          <strong>✅ Can be used here</strong>
-          <span>Impeccable provides design context files (DESIGN.md + PRODUCT.md), 23 commands, 44 anti-pattern detectors, and a design vocabulary usable by any AI agent working on this project.</span>
-        </div>
-        <div class="feature">
-          <strong>🎨 Design 3 uses it</strong>
-          <span>Industrial Teal directly applies Impeccable's kinpaku tokens: lacquer-black, verdigris-patina accent, weight-300 uppercase display, zero radius, compressed hierarchy.</span>
-        </div>
-        <div class="feature">
-          <strong>📋 How to use</strong>
-          <span>Add Impeccable's DESIGN.md + PRODUCT.md as design context. Run commands via AI tool integration (Claude Code, Cursor, Codex). Also works standalone via AGENTS.md reference.</span>
-        </div>
-        <div class="feature">
-          <strong>📐 Anti-pattern rules</strong>
-          <span>44 deterministic detector rules help catch: gray text on colored backgrounds, cards-inside-cards, overused fonts, bounce easing, pure black/gray without tinting, and more.</span>
-        </div>
+        <div class="feature"><strong>✅ Can be used here</strong><span>DESIGN.md + PRODUCT.md context files, 23 commands, 44 anti-pattern detectors — usable by any AI agent.</span></div>
+        <div class="feature"><strong>🎨 Design 3 uses it</strong><span>Industrial Teal applies Impeccable's kinpaku tokens: lacquer-black, verdigris accent, zero radius.</span></div>
+        <div class="feature"><strong>📋 How to use</strong><span>Add DESIGN.md + PRODUCT.md as context. Commands work via AI tool hooks (Claude, Cursor, Codex).</span></div>
+        <div class="feature"><strong>📐 Anti-pattern rules</strong><span>44 deterministic detectors for gray-on-color, card-nesting, overused fonts, bounce easing, and more.</span></div>
       </div>
-      <p style="margin-top:1rem;font-size:0.82rem;color:#5a6478">
-        <strong>Verdict:</strong> Impeccable is installable and applicable. Its DESIGN.md tokens directly inspired Design 3 (Industrial Teal). The commands (critique, polish, audit, bolder, quieter) work through AI tool hooks. For standalone use, the anti-pattern detector CLI can be run directly.
-      </p>
+      <p style="margin-top:1rem;font-size:0.82rem;color:#5a6478"><strong>Verdict:</strong> Impeccable is installable and applicable. Its tokens directly inspired Design 3 (Industrial Teal). Commands work via AI hooks; anti-pattern detector CLI runs standalone.</p>
     </div>
   </div>
 
   <div class="footer">
     Made with ✦ for Shenzhen Luosheng Digital Technology Firm · <a href="https://luosheng-power-banks.vercel.app" style="color:var(--gold-light);text-decoration:none">Main Site</a>
-    · <a href="viewer.html" style="color:var(--gold);text-decoration:none;font-weight:700">⟳ Rotate Designs</a>
+    · <a href="viewer.html" style="color:var(--gold);text-decoration:none;font-weight:700">⟳ Rotate All 8</a>
   </div>
 </body>
 </html>
